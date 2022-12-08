@@ -49,7 +49,7 @@ export const SignUp = () => {
         }
       });
     } catch (error) {
-      console.log(error);
+      alert("사용 불가한 이메일입니다.");
     }
   };
 
