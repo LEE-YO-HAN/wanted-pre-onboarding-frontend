@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
@@ -29,13 +28,7 @@ export default function Sign() {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      // const data = await axios
-      //   .post(
-      //     "https://pre-onboarding-selection-task.shop/auth/signin",
-      //     newFormData
-      //   )
       const data = await signAPI.goSignIn(newFormData).then((res) => {
-        console.log(res);
         if (res.status === 200) {
           localStorage.setItem("access_token", res.data.access_token);
           navigate("/todo");

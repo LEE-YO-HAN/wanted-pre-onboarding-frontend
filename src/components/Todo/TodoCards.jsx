@@ -3,21 +3,17 @@ import { todoAPI } from "../../api/api";
 import styled from "styled-components";
 
 export const TodoCards = (appendNew) => {
-  console.log("어펜드 뉴 새로 받았음", appendNew);
-
   // get todos data
   const [todoData, setTodoData] = useState();
   const getTodoAPI = async () => {
     try {
       const data = await todoAPI.getTodos().then((res) => {
-        console.log(res);
         setTodoData(res?.data);
       });
     } catch (error) {
       console.log(error);
     }
   };
-  console.log("API 요청 데이터", todoData);
 
   // new data fetch through Dependency(appendNew)
   useEffect(() => {
@@ -64,19 +60,6 @@ export const TodoCards = (appendNew) => {
       console.log(error);
     }
   };
-
-  // update completed
-  //   const updateCompleted =async (id, isCompleted ,prevTodo)=>{
-  //     try {
-  //         const editFormData = {
-  //             todo: editInput,
-  //             isCompleted: isCompleted,
-  //         }
-  //         const data = await todoAPI.updateTodo(id,)
-  //     } catch (error) {
-  //         console.log(error)
-  //     }
-  //   }
 
   return (
     <div>
