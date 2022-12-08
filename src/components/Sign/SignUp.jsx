@@ -104,7 +104,6 @@ const FormWrap = styled.form`
   align-items: center;
   width: 400px;
   height: 450px;
-  /* background-color: #6de06d */
 
   & div {
     display: flex;
@@ -122,7 +121,6 @@ const FormWrap = styled.form`
     text-align: center;
   }
   & input {
-    /* margin-bottom: 50px; */
     width: 200px;
     height: 30px;
     border: none;
