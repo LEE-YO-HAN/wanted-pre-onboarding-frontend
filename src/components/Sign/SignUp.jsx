@@ -34,6 +34,7 @@ export const SignUp = () => {
       : setEqualPassword(false);
   }, [password, confirmPassword]);
 
+  // formData
   const newFormData = {
     email: email,
     password: password,
