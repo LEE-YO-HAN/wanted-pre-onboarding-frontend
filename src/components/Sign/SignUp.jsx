@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { signAPI } from "../../api/api";
 
 export const SignUp = () => {
   // Email/PW state
@@ -39,20 +40,21 @@ export const SignUp = () => {
     email: email,
     password: password,
   };
+  signAPI.goSignUp(newFormData);
 
   const handleSingUp = async () => {
     try {
-      const data = await axios
-        .post(
-          "https://pre-onboarding-selection-task.shop/auth/signup",
-          newFormData
-        )
-        .then((res) => {
-          console.log(res);
-          if (res.status === 201) {
-            alert("회원가입이 완료되었습니다!");
-          }
-        });
+      //   const data = await axios
+      //     .post(
+      //       "https://pre-onboarding-selection-task.shop/auth/signup",
+      //       newFormData
+      //     )
+      const data = await signAPI.goSignUp(newFormData).then((res) => {
+        console.log(res);
+        if (res.status === 201) {
+          alert("회원가입이 완료되었습니다!");
+        }
+      });
     } catch (error) {
       console.log(error);
     }
