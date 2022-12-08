@@ -58,6 +58,7 @@ export default function Todo() {
 
 const Container = styled.div`
   margin: 0 auto;
+  margin-bottom: 20vh;
   width: 80vw;
 `;
 

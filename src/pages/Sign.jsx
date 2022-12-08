@@ -93,7 +93,8 @@ export default function Sign() {
 
 const Container = styled.div`
   margin: 0 auto;
-  margin-top: 200px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   width: 480px;
   height: 600px;
   display: flex;
