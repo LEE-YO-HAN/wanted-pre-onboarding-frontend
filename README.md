@@ -15,6 +15,9 @@ yarn start
 ```
 
 적용 패키지
+
 axios - http request
+
 react-router-dom - for routing
+
 styled-component - for styled code
