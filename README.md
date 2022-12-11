@@ -7,7 +7,10 @@
 사용법
 
 ```
+yarn install
+```
 
+```
 yarn start
 ```
 
