@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { signAPI } from "../../api/api";
 import styled from "styled-components";
 
-export const SignUp = () => {
+export const SignUp = ({ goLogin }) => {
   // Email/PW state
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -22,10 +22,17 @@ export const SignUp = () => {
   }, [checkEmail, checkPassword, equalPassword]);
 
   // Email confirm
+  // useEffect(() => {
+  //   email.indexOf("@") === -1 || email.indexOf(".") === -1
+  //     ? setCheckEmail(false)
+  //     : setCheckEmail(true);
+  // }, [email]);
+
+  // Email confirm Regex
   useEffect(() => {
-    email.indexOf("@") === -1 || email.indexOf(".") === -1
-      ? setCheckEmail(false)
-      : setCheckEmail(true);
+    const emailRegex =
+      /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    emailRegex.test(email) ? setCheckEmail(true) : setCheckEmail(false);
   }, [email]);
   // PW confirm
   useEffect(() => {
@@ -46,6 +53,7 @@ export const SignUp = () => {
       const data = await signAPI.goSignUp(newFormData).then((res) => {
         if (res.status === 201) {
           alert("회원가입이 완료되었습니다!");
+          goLogin();
         }
       });
     } catch (error) {

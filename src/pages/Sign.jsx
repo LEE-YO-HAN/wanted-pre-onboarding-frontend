@@ -69,7 +69,7 @@ export default function Sign() {
           </div>
         </FormWrap>
       ) : (
-        <SignUp />
+        <SignUp goLogin={goLogin} />
       )}
       <NavBtn>
         <ul>
